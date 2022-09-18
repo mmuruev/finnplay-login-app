@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+  <div class="container">
+    <h2 class="form-signin-heading">Successful.. redirecting</h2>
+  </div>
+</body>
+<script>
+    // Using ES6 feature.
+    let redirectPage = () => {
+        let timerID = setTimeout(function () {
+            window.location.href = "/";
+            window.clearTimeout(timerID);
+        }, 3000);
+    }
+
+    redirectPage();
+</script>
+
+
+</html>
