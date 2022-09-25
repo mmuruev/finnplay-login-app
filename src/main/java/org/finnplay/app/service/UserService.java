@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -80,10 +80,11 @@ public class UserService {
     }
 
     private UserDTO toUserDTO(User user) {
+        var birthday = user.getBirthdayDate() != null ? Date.from(user.getBirthdayDate()) : null;
         return new UserDTO()
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
                 .setEmail(user.getLoginEmail())
-                .setBirthday(user.getBirthdayDate());
+                .setBirthday(birthday);
     }
 }
